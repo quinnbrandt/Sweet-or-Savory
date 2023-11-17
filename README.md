@@ -122,4 +122,4 @@ For this I first found a test statistic by creating two filtered datasets. One w
 
 I then ran a permutation test in which I shuffled the average rating column. Then created the same two datasets as above and took the means. I took the absolute difference and added it to a list. I repeated those steps 500 times and found that the number of absolute differences that were greater than or equal to my test statistic was 0. Thus I was able to reject the null hypothesis. 
 
-<iframe src="assets/hyp_his_hist.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/hyp_hist.html" width=800 height=600 frameBorder=0></iframe>
