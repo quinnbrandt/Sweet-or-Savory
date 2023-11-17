@@ -6,7 +6,7 @@ By: Quinn Brandt
 
 ---
 
-### Introduction
+# Introduction
 
 With diets and trends coming and leaving more frequently than ever, it is interesting to try to analyze those trends using the recipes and reviews users leave online. This proect attempts to start an analysis of some of these trends.
 
@@ -26,7 +26,7 @@ As diet and obesity become a more prevelant topic in the US, it is important to 
 
 ---
 
-### Data Cleaning and EDA
+# Data Cleaning and EDA
 
 There were many steps in the data cleaning process. They included:
 1. Merging the datasets
@@ -57,7 +57,7 @@ The head of the cleaned dataframe is shown below. I included only the inmportant
 | 412 broccoli casserole               | 306168 |        40 |            5 |      194.8 |              22 |             6 |
 | 412 broccoli casserole               | 306168 |        40 |            5 |      194.8 |              22 |             6 |
 
-# Univariate Analysis
+### Univariate Analysis
 
 In this section, I explored the distributions of individual columns. The first of which was the protein column. In doing so I found that the bulk of the recipes fell under one of two categories. The vast majority had between 0-20 percent of daily value protein. There was another peak in the data around 40-60 grams of protein.
 
@@ -67,7 +67,7 @@ Another histogram I looked at was the distribution of the average starts column.
 
 <iframe src="assets/star_hist.html" width=800 height=600 frameBorder=0></iframe>
 
-# Bivariate Analysis
+### Bivariate Analysis
 
 Bivariate analysis consists of comparing two of the columns together. The first way that I did this was to compare the protein and sugar columns. The main takeawy from this was that the two seemed to be negatively correlated with very few high protein meals also having high sugar and vice versa.
 
@@ -77,7 +77,7 @@ Another way that I used bivariate analysis was by comparing the minutes the reci
 
 <iframe src="assets/min_v_len.html" width=800 height=600 frameBorder=0></iframe>
 
-# Interesting Aggregates
+### Interesting Aggregates
 
 In this aggregate table, the index is stars rounded to the nearest whole number, and calories, protein, and sugar are all grouped by the aggregate function mean. It can be seen that the highest stars come from a moderate protein level and a low sugar level.
 
@@ -92,13 +92,13 @@ In this aggregate table, the index is stars rounded to the nearest whole number,
 
 ---
 
-### Assessment of Missingness
+# Assessment of Missingness
 
-# NMAR
+### NMAR
 
 I don't believe that any column in this dataset is NMAR. The three columns with missing values were review, rating, and description. Review I will talk about later. Rating is only missing due to the fact that we replaced all ratings of 0 with NaN. Finally for description, I thought originally it may have been that the missing values were on simple recipes that did not need much of a description, however upon further inspection this was not always the case.
 
-# Missingness Analysis
+### Missingness Analysis
 
 The review columns is one of three that had many instances of missing values. I noticed that it appeared to be dependent on the number of steps column. I first created a new dataframe with only the rows that had missing review values and took the mean of the number of steps. Then I took the original dataframe and took the mean of the number of steps. The absolute difference between these two came out to about 4.83. I then ran a permutation test where I shuffled the review column 500 times and took the absolute difference of means each time. I found that 0% of the 500 trials had an absolute difference equal to or greater than the test statistic. 
 
@@ -108,11 +108,11 @@ I the ran another permutation test using the minutes column. I originally expect
 
 <iframe src="assets/mins_perm_hist.html" width=800 height=600 frameBorder=0></iframe>
 
-### Hypothesis Testing
+# Hypothesis Testing
 
 The question I chose to explore was whether sweet or savory recipes had a higher average rating. I defined sweet recipes as those with 75th percentile or higher sugar and 25th percentile or lower protein. Savory recipes are defined as 75th percentile or higher protein and 25th percentile or lower sugar. I used a permutation test to evaluate this question.
 
-# Set Up
+### Set Up
 
 Null Hypothesis: Both sweet and savory recipes are rated the same by reviewers.
 
